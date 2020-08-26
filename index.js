@@ -52,12 +52,12 @@ module.exports = class PowercordPluginDownloader extends Plugin {
           4,
           0,
           React.createElement(menu.MenuItem, {
-            name: powercord.pluginManager.isInstalled(repoName)
+            name: powercord.themeManager.isInstalled(repoName)
               ? "Theme Already Installed"
               : "Install Theme",
             separate: true,
             id: "ThemeDownloaderContextLink",
-            label: powercord.pluginManager.isInstalled(repoName)
+            label: powercord.themeManager.isInstalled(repoName)
             ? "Theme Already Installed"
             : "Install Theme",
             action: () => DownloadPlugin(target.href, powercord),

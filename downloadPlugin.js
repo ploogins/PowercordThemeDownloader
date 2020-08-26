@@ -44,8 +44,8 @@ async function downloadPlugin(url, powercord) {
         console.error(e);
       }
       if (files.includes("manifest.json")) {
-        await powercord.pluginManager.remount(repoName);
-        if (powercord.pluginManager.plugins.has(repoName)) {
+        await powercord.themeManager.remount(repoName);
+        if (powercord.themeManager.plugins.has(repoName)) {
           powercord.api.notices.sendToast("PDPluginInstalled", {
             header: "Plugin Installed", // required
             content: "Plugin Installed",
