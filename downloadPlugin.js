@@ -43,12 +43,12 @@ async function downloadPlugin(url, powercord) {
         // handle this error eventually, means the folder is nowhere to be found
         console.error(e);
       }
-      if (files.includes("manifest.json")) {
+      if (files.includes("powercord_manifest.json")) {
         await powercord.styleManager.remount(repoName);
         if (powercord.styleManager.plugins.has(repoName)) {
           powercord.api.notices.sendToast("PDPluginInstalled", {
-            header: "Plugin Installed", // required
-            content: "Plugin Installed",
+            header: "Theme Installed", // required
+            content: "Theme Installed",
             type: "info",
             timeout: 10e3,
             buttons: [
