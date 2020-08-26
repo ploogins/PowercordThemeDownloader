@@ -17,7 +17,7 @@ class DownloadButton extends React.Component {
     const repoNameMatch = GithubLink.match(/[\w-]+$/);
     if (!repoNameMatch) return <></>;
     const repoName = repoNameMatch[0];
-    var installed = powercord.themeManager.isInstalled(repoName);
+    var installed = powercord.styleManager.isInstalled(repoName);
     if (!this.props.message.content.includes("https://github.com")) {
       return (
         <div
