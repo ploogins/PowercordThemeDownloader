@@ -18,9 +18,9 @@ module.exports = class PowercordPluginDownloader extends Plugin {
     const MiniPopover = await getModule(
       (m) => m.default && m.default.displayName === "MiniPopover"
     );
-    inject("PluginDownloaderButton", MiniPopover, "default", (args, res) => {
+    inject("ThemeDownloaderButton", MiniPopover, "default", (args, res) => {
       const props = findInReactTree(res, (r) => r && r.message && r.setPopout);
-      if (!props || props.channel.id !== "546399060907524106") {
+      if (!props || props.channel.id !== "570212399307685899") {
         return res;
       }
 
@@ -41,7 +41,7 @@ module.exports = class PowercordPluginDownloader extends Plugin {
     const mdl = await getModule(
       (m) => m.default && m.default.displayName === "MessageContextMenu"
     );
-    inject("PluginDownloader", mdl, "default", ([{ target }], res) => {
+    inject("ThemeDownloader", mdl, "default", ([{ target }], res) => {
       if (!target || !target.href || !target.tagName) return res
       var match = target.href.match(
         /^https?:\/\/(www.)?git(hub|lab).com\/[\w-]+\/[\w-]+/
@@ -53,13 +53,13 @@ module.exports = class PowercordPluginDownloader extends Plugin {
           0,
           React.createElement(menu.MenuItem, {
             name: powercord.pluginManager.isInstalled(repoName)
-              ? "Plugin Already Installed"
-              : "Install Plugin",
+              ? "Theme Already Installed"
+              : "Install Theme",
             separate: true,
-            id: "PluginDownloaderContextLink",
+            id: "ThemeDownloaderContextLink",
             label: powercord.pluginManager.isInstalled(repoName)
-            ? "Plugin Already Installed"
-            : "Install Plugin",
+            ? "Theme Already Installed"
+            : "Install Theme",
             action: () => DownloadPlugin(target.href, powercord),
           })
         );
@@ -71,7 +71,7 @@ module.exports = class PowercordPluginDownloader extends Plugin {
 
 
   pluginWillUnload() {
-    uninject("PluginDownloader");
-    uninject("PluginDownloaderButton")
+    uninject("ThemeDownloader");
+    uninject("ThemeDownloaderButton")
   }
 };

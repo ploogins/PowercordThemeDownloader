@@ -21,7 +21,7 @@ class DownloadButton extends React.Component {
     if (!this.props.message.content.includes("https://github.com")) {
       return (
         <div
-          className={["PluginDownloaderApply", installed ? "applied" : ""]
+          className={["ThemeDownloaderApply", installed ? "applied" : ""]
             .filter(Boolean)
             .join(" ")}
         >
@@ -38,7 +38,7 @@ class DownloadButton extends React.Component {
     } else {
       return (
         <div
-          className={["PluginDownloaderApply", installed && "applied"]
+          className={["ThemeDownloaderApply", installed && "applied"]
             .filter(Boolean)
             .join(" ")}
         >
@@ -48,7 +48,7 @@ class DownloadButton extends React.Component {
               downloadPlugin(GithubLink, powercord);
             }}
           >
-            {installed ? "Plugin Installed" : "Download Plugin"}
+            {installed ? "Theme Installed" : "Download Theme"}
           </Clickable>
         </div>
       );

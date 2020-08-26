@@ -2,13 +2,13 @@ const { join } = require("path");
 const { spawn } = require("child_process");
 const fs = require("fs");
 async function downloadPlugin(url, powercord) {
-  const pluginDir = join(__dirname, "..");
+  const themeDir = join(__dirname, "..", "..", "themes");
   const repoName = url.match(/[\w-]+$/)[0];
   let status;
   let c;
   try {
     c = spawn("git", ["clone", url], {
-      cwd: pluginDir,
+      cwd: themeDir,
       windowsHide: true,
     });
   } catch (e) {
@@ -37,7 +37,7 @@ async function downloadPlugin(url, powercord) {
     if (code === 0) {
       let files;
       try {
-        files = fs.readdirSync(join(pluginDir, repoName));
+        files = fs.readdirSync(join(themeDir, repoName));
         console.log(files);
       } catch (e) {
         // handle this error eventually, means the folder is nowhere to be found
@@ -65,8 +65,8 @@ async function downloadPlugin(url, powercord) {
         }
       } else {
         powercord.api.notices.sendToast('PDNoManifest', {
-            header: 'This plugin has no manifest, it may not be a plugin', // required
-            content: 'This plugin has no manifest, it may not be a plugin',
+            header: 'This theme has no manifest, it may not be a theme', // required
+            content: 'This theme has no manifest, it may not be a theme',
             type: 'info',
             timeout: 10e3,
             buttons: [ {
