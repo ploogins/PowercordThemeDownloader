@@ -20,8 +20,8 @@ async function downloadPlugin(url, powercord) {
     console.error(data);
     if (data.includes("already exists")) {
         powercord.api.notices.sendToast('PDAlreadyInstalled', {
-            header: 'Plugin Already Installed', // required
-            content: 'Plugin Already Installed',
+            header: 'Theme Already Installed', // required
+            content: 'Theme Already Installed',
             type: 'info',
             timeout: 10e3,
             buttons: [ {
