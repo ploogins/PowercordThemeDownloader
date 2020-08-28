@@ -1,3 +1,3 @@
-# PluginDownloader
+# ThemeDownloader
 
-This plugin lets you install a plugin from a URL, and adds a button to download the plugin
+This plugin lets you install a theme from a URL, and adds a button to download the theme
