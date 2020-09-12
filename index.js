@@ -7,7 +7,7 @@ const fs = require("fs");
 const { findInReactTree, forceUpdateElement } = require("powercord/util");
 const DownloadButton = require("./Components/DownloadButton");
 const DownloadPlugin = require("./downloadPlugin");
-module.exports = class PowercordPluginDownloader extends Plugin {
+module.exports = class PowercordThemeDownloader extends Plugin {
   async startPlugin() {
     this.injectContextMenu();
     this.injectMiniPopover();
