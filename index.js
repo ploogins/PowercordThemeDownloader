@@ -20,7 +20,7 @@ module.exports = class PowercordThemeDownloader extends Plugin {
     );
     inject("ThemeDownloaderButton", MiniPopover, "default", (args, res) => {
       const props = findInReactTree(res, (r) => r && r.message && r.setPopout);
-      if (!props || props.channel.id !== "570212399307685899") {
+      if (!props || props.channel.id !== "755005710323941386") {
         return res;
       }
 
