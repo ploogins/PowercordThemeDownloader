@@ -11,13 +11,13 @@ class DownloadButton extends React.Component {
       .replace(/(?:\n|<|>)/g, " ")
       .split(" ")
       .filter((f) =>
-        f.match(/^https?:\/\/(www.)?git(hub|lab).com\/[\w-]+\/[\w-]+/)
+        f.match(/^https?:\/\/(www.)?git(hub|lab).com\/[\w-]+\/[\w-]+\/?/)
       )[0];
     if (!GithubLink) return <></>;
-    const repoNameMatch = GithubLink.match(/[\w-]+$/);
+    const repoNameMatch = GithubLink.match(/([\w-]+)\/?$/);
     if (!repoNameMatch) return <></>;
-    const repoName = repoNameMatch[0];
     var installed = powercord.styleManager.isInstalled(repoName);
+    const repoName = repoNameMatch[1];
     if (!this.props.message.content.includes("https://github.com")) {
       return (
         <div
