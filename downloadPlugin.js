@@ -3,7 +3,7 @@ const { spawn } = require("child_process");
 const fs = require("fs");
 async function downloadPlugin(url, powercord) {
   const themeDir = join(__dirname, "..", "..", "themes");
-  const repoName = url.match(/([\w-]+)\/?$/)[1];
+  const repoName = url.match(/([\w-]+)\/?$/)[0];
   let status;
   let c;
   try {

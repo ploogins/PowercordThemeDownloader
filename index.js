@@ -47,7 +47,7 @@ module.exports = class PowercordThemeDownloader extends Plugin {
         /^https?:\/\/(www.)?git(hub|lab).com\/[\w-]+\/[\w-]+\/?/
       );
       if (target.tagName.toLowerCase() === "a" && match) {
-        var repoName = target.href.match(/([\w-]+)\/?$/)[1];
+        var repoName = target.href.match(/([\w-]+)\/?$/)[0];
         res.props.children.splice(
           4,
           0,
