@@ -6,7 +6,7 @@ const { spawn } = require("child_process");
 const fs = require("fs");
 const { findInReactTree, forceUpdateElement } = require("powercord/util");
 const DownloadButton = require("./Components/DownloadButton");
-const DownloadPlugin = require("./downloadPlugin");
+const DownloadTheme = require("./downloadTheme");
 module.exports = class PowercordThemeDownloader extends Plugin {
   async startPlugin() {
     this.injectContextMenu();
@@ -60,7 +60,7 @@ module.exports = class PowercordThemeDownloader extends Plugin {
             label: powercord.styleManager.isInstalled(repoName)
             ? "Theme Already Installed"
             : "Install Theme",
-            action: () => DownloadPlugin(target.href, powercord),
+            action: () => DownloadTheme(target.href, powercord),
           })
         );
       }

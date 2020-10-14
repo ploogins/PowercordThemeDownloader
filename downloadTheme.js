@@ -1,7 +1,7 @@
 const { join } = require("path");
 const { spawn } = require("child_process");
 const fs = require("fs");
-async function downloadPlugin(url, powercord) {
+async function downloadTheme(url, powercord) {
   const themeDir = join(__dirname, "..", "..", "themes");
   const repoName = url.match(/([\w-]+)\/?$/)[0];
   let status;
@@ -12,7 +12,7 @@ async function downloadPlugin(url, powercord) {
       windowsHide: true,
     });
   } catch (e) {
-    console.error("Could not install plugin");
+    console.error("Could not install theme");
   }
   c.stdout.on("data", (data) => console.log(data.toString()));
   c.stderr.on("data", (data) => {
@@ -46,7 +46,7 @@ async function downloadPlugin(url, powercord) {
       if (files.includes("powercord_manifest.json")) {
         await powercord.styleManager.loadThemes();
         if (powercord.styleManager.themes.has(repoName)) {
-          powercord.api.notices.sendToast("PDPluginInstalled", {
+          powercord.api.notices.sendToast("PDThemeInstalled", {
             header: "Theme Installed", // required
             content: "Theme Installed",
             type: "info",
@@ -83,4 +83,4 @@ async function downloadPlugin(url, powercord) {
   });
 }
 
-module.exports = downloadPlugin;
+module.exports = downloadTheme;
