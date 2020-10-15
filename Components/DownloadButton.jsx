@@ -3,8 +3,8 @@ const {
   i18n: { Messages },
 } = require("powercord/webpack");
 const { Clickable } = require("powercord/components");
-const DownloadPlugin = require("../downloadPlugin");
-const downloadPlugin = require("../downloadPlugin");
+const downloadTheme = require("../downloadTheme");
+const downloadTheme = require("../downloadTheme");
 class DownloadButton extends React.Component {
   render() {
     var GithubLink = this.props.message.content
@@ -28,7 +28,7 @@ class DownloadButton extends React.Component {
           <Clickable
             onClick={() => {
               if (installed) return;
-              downloadPlugin(GithubLink, powercord);
+              downloadTheme(GithubLink, powercord);
             }}
           >
             No Plugin
@@ -45,7 +45,7 @@ class DownloadButton extends React.Component {
           <Clickable
             onClick={() => {
               if (installed) return;
-              downloadPlugin(GithubLink, powercord);
+              downloadTheme(GithubLink, powercord);
             }}
           >
             {installed ? "Theme Installed" : "Download Theme"}
