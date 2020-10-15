@@ -4,7 +4,6 @@ const {
 } = require("powercord/webpack");
 const { Clickable } = require("powercord/components");
 const downloadTheme = require("../downloadTheme");
-const downloadTheme = require("../downloadTheme");
 class DownloadButton extends React.Component {
   render() {
     var GithubLink = this.props.message.content
