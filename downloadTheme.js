@@ -3,7 +3,7 @@ const { spawn } = require("child_process");
 const fs = require("fs");
 async function downloadTheme(url, powercord) {
   const themeDir = join(__dirname, "..", "..", "themes");
-  const repoName = url.match(/([\w-]+)\/?$/)[0];
+  const repoName = url.match(/([\w-_\.]+)\/?$/)?.[0];
   let status;
   let c;
   try {
@@ -38,7 +38,6 @@ async function downloadTheme(url, powercord) {
       let files;
       try {
         files = fs.readdirSync(join(themeDir, repoName));
-        console.log(files);
       } catch (e) {
         // handle this error eventually, means the folder is nowhere to be found
         console.error(e);
