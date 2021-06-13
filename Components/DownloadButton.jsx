@@ -13,7 +13,7 @@ class DownloadButton extends React.Component {
         f.match(/^https?:\/\/(www.)?git(hub|lab).com\/[\w-]+\/[\w-]+\/?/)
       )[0];
     if (!GithubLink) return <></>;
-    const repoNameMatch = GithubLink.match(/([\w-]+)\/?$/)[0];
+    const repoNameMatch = GithubLink.match(/([\w-_\.]+)\/?$/)?.[0];
     if (!repoNameMatch) return <></>;
     const repoName = repoNameMatch[1];
     var installed = powercord.styleManager.isInstalled(repoName);
