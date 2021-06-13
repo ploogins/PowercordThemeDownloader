@@ -37,7 +37,6 @@ module.exports = class PowercordThemeDownloader extends Plugin {
 
   async injectContextMenu() {
     const menu = await getModule(["MenuItem"]);
-    console.log(menu.MenuItem)
     const mdl = await getModule(
       (m) => m.default && m.default.displayName === "MessageContextMenu"
     );

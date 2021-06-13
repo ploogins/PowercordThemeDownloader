@@ -6,16 +6,8 @@ const { Clickable } = require("powercord/components");
 const downloadTheme = require("../downloadTheme");
 class DownloadButton extends React.Component {
   render() {
-    var GithubLink = this.props.message.content
-      .replace(/(?:\n|<|>)/g, " ")
-      .split(" ")
-      .filter((f) =>
-        f.match(/^https?:\/\/(www.)?git(hub|lab).com\/[\w-]+\/[\w-]+\/?/)
-      )[0];
+    var [GithubLink, , , repoName] = this.props.message.content.match(/https?:\/\/(www.)?git(hub|lab).com\/[\w-]+\/([\w-\._]+)\/?/) ?? [];
     if (!GithubLink) return <></>;
-    const repoNameMatch = GithubLink.match(/([\w-_\.]+)\/?$/)?.[0];
-    if (!repoNameMatch) return <></>;
-    const repoName = repoNameMatch[1];
     var installed = powercord.styleManager.isInstalled(repoName);
     if (!this.props.message.content.includes("https://github.com")) {
       return (
